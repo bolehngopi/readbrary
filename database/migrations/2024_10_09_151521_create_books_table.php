@@ -14,9 +14,10 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->string('cover')->nullable();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->foreignId('author_id')->constrained()->onDelete('cascade');
-            $table->year('published_year');
+            $table->foreignId('publisher_id')->constrained()->onDelete('cascade');
+            $table->year('published_year')->nullable();
             $table->string('isbn');
             $table->integer('stock');
             $table->timestamps();
